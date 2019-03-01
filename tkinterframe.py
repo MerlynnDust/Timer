@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 import datetime
+from playsound import playsound
 
 class tkinter():
     #make tk callable
@@ -38,6 +39,12 @@ class tkinter():
 
             self.variable.set(str(i))
             self.root.after(1000, self.root.update())
+
+            #plays sound when timer is up.
+            if i == 0:
+                for i2 in range(10):
+                    playsound('soundfiles/270405__littlerobotsoundfactory__pickup-gold-03.wav')
+
 
 object1 = tkinter()
 
