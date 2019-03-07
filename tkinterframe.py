@@ -1,13 +1,12 @@
 from tkinter import *
-from tkinter import ttk
-import datetime
+import time
 from playsound import playsound
 
 class tkinter():
     #make tk callable
     root = Tk()
 
-    user_minutes = "0"
+    user_minutes = 0
 
     #initialize variable for use with tkinter
     variable = StringVar()
@@ -37,7 +36,7 @@ class tkinter():
         for i in reversed(range(int(self.feet_entry.get())*60)):
 
 
-            self.variable.set(str(i))
+            self.variable.set(time.strftime('%H:%M:%S', time.gmtime(i)))
             self.root.after(1000, self.root.update())
 
             #plays sound when timer is up.
