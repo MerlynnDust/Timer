@@ -9,7 +9,7 @@ class tkinter():
     user_minutes = 0
 
     #initialize variable for use with tkinter
-    variable = StringVar()
+    time_variable = StringVar()
 
     def create_tk_top_label(self):
         self.your_label = Label(self.root, text="Custom Timer")
@@ -25,7 +25,7 @@ class tkinter():
 
     def create_tk_output_label(self):
 
-        self.your_label2 = Label(self.root, textvariable=self.variable)
+        self.your_label2 = Label(self.root, textvariable=self.time_variable)
         self.your_label2.grid(column=0, row=3)
 
     def tk_update_label(self):
@@ -35,8 +35,8 @@ class tkinter():
         #main for loop, also converts variable to integer and then makes it into minutes
         for i in reversed(range(int(self.feet_entry.get())*60)):
 
-
-            self.variable.set(time.strftime('%H:%M:%S', time.gmtime(i)))
+            #updates the variable for tkinter
+            self.time_variable.set(time.strftime('%H:%M:%S', time.gmtime(i)))
             self.root.after(1000, self.root.update())
 
             #plays sound when timer is up.
